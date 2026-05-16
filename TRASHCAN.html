@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Clemente Bin Cleaning Service</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; background: #f0f7f0; }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1a4a8a, #0d2f5e);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0px #000;
+            letter-spacing: 3px;
+            color: white;
+        }
+        header h2 {
+            font-size: 1.6em;
+            color: #f5c518;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 8px;
+        }
+        header p {
+            font-size: 1.3em;
+            margin-top: 15px;
+            font-weight: bold;
+            color: white;
+        }
+        .cta-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 45px;
+            background: #2d8a2d;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 3px solid #1a5a1a;
+            transition: background 0.3s;
+        }
+        .cta-btn:hover { background: #1a6a1a; }
+
+        /* PRICING */
+        #pricing {
+            background: linear-gradient(135deg, #e8f4e8, #d0ebd0);
+            padding: 60px 20px;
+        }
+        #pricing .inner { max-width: 1000px; margin: 0 auto; }
+        #pricing h2 {
+            text-align: center;
+            font-size: 2em;
+            text-transform: uppercase;
+            color: #1a4a8a;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #2d8a2d;
+            padding-bottom: 10px;
+        }
+        .pricing-cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .pricing-card {
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            width: 280px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .pricing-card.monthly {
+            background: linear-gradient(135deg, #2d8a2d, #1a5a1a);
+            border: 4px solid #1a3a1a;
+        }
+        .pricing-card.onetime {
+            background: linear-gradient(135deg, #d4680a, #a84e08);
+            border: 4px solid #7a3a06;
+        }
+        .pricing-card h3 { font-size: 1.6em; text-transform: uppercase; margin-bottom: 10px; }
+        .pricing-card .price { font-size: 4.5em; font-weight: bold; margin: 10px 0; }
+        .pricing-card p { font-size: 1em; font-style: italic; }
+
+        /* HOW IT WORKS */
+        #how-it-works { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+        #how-it-works h2 {
+            text-align: center;
+            font-size: 2em;
+            text-transform: uppercase;
+            color: #1a4a8a;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #2d8a2d;
+            padding-bottom: 10px;
+        }
+        .steps {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .step {
+            background: white;
+            border: 3px solid #1a4a8a;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            width: 210px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .step-number {
+            background: #1a4a8a;
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+        .step h3 {
+            color: #2d8a2d;
+            font-size: 1em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .step p { font-size: 0.9em; color: #444; }
+
+        /* BOOKING FORM */
+        #booking {
+            background: #1a4a8a;
+            padding: 60px 20px;
+        }
+        #booking .inner { max-width: 700px; margin: 0 auto; }
+        #booking h2 {
+            text-align: center;
+            font-size: 2em;
+            text-transform: uppercase;
+            color: #f5c518;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #f5c518;
+            padding-bottom: 10px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 2px solid #f5c518;
+            font-size: 1em;
+            background: white;
+        }
+        .form-group textarea { height: 100px; resize: vertical; }
+        .form-row { display: flex; gap: 20px; }
+        .form-row .form-group { flex: 1; }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2d8a2d;
+            color: white;
+            border: 3px solid #1a5a1a;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background: #1a6a1a; }
+
+        /* CONTACT */
+        #contact {
+            background: #2d8a2d;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        #contact h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        #contact .phone {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #f5c518;
+            text-shadow: 2px 2px 0px #000;
+        }
+        #contact p { font-size: 1.2em; margin-top: 15px; }
+
+        /* FOOTER */
+        footer {
+            background: #0d2f5e;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2em; }
+            .form-row { flex-direction: column; gap: 0; }
+            .pricing-card { width: 100%; max-width: 320px; }
+            #contact .phone { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>San Clemente</h1>
+        <h2>Bin Cleaning Service</h2>
+        <p>We Clean & Sanitize Your Trash Bins!</p>
+        <a href="#booking" class="cta-btn">Schedule a Cleaning</a>
+    </header>
+
+    <!-- PRICING -->
+    <div id="pricing">
+        <div class="inner">
+            <h2>Pricing Options</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card monthly">
+                    <h3>Monthly</h3>
+                    <div class="price">$25</div>
+                    <p>Once Per Month</p>
+                </div>
+                <div class="pricing-card onetime">
+                    <h3>One-Time Clean</h3>
+                    <div class="price">$20</div>
+                    <p>Per Bin — Single Visit Service</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEFORE & AFTER -->
+    <div id="before-after" style="background: white; padding: 60px 20px; text-align: center;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-size: 2em; text-transform: uppercase; color: #1a4a8a; margin-bottom: 40px; border-bottom: 4px solid #2d8a2d; padding-bottom: 10px;">Before & After</h2>
+            <img src="before-after.jpg" alt="Before and After Bin Cleaning" style="width: 100%; max-width: 900px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Schedule</h3>
+                <p>Fill out the form below or text us to book your service!</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Clean & Wash</h3>
+                <p>We sanitize and pressure wash your bins.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Deodorize</h3>
+                <p>We deodorize and disinfect your bins.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>All Fresh!</h3>
+                <p>Bins left clean and smelling great!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE AREA MAP -->
+    <div id="service-area" style="background: #f0f7f0; padding: 60px 20px; text-align: center;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-size: 2em; text-transform: uppercase; color: #1a4a8a; margin-bottom: 15px; border-bottom: 4px solid #2d8a2d; padding-bottom: 10px;">Our Service Area</h2>
+            <p style="font-size: 1.1em; color: #444; margin-bottom: 30px;">We proudly serve the San Clemente area. Not sure if we cover your street? Text us and we will let you know!</p>
+            <iframe
+                src="https://maps.google.com/maps?q=San+Clemente,CA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="450"
+                style="border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 3px solid #1a4a8a;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- BOOKING FORM -->
+    <div id="booking">
+        <div class="inner">
+            <h2>Schedule Your Cleaning</h2>
+            <form action="https://formspree.io/f/meedjqqd" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" placeholder="Smith" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="(949) 000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="john@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Service Address</label>
+                    <input type="text" name="address" placeholder="123 Main St, San Clemente, CA" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select name="service_type" required>
+                            <option value="">Select a service...</option>
+                            <option value="Monthly - $25/month">Monthly — $25/month</option>
+                            <option value="One-Time Clean - $20">One-Time Clean — $20</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Bins</label>
+                        <select name="num_bins" id="num_bins" required onchange="updatePrice()">
+                            <option value="">Select...</option>
+                            <option value="1">1 Bin</option>
+                            <option value="2">2 Bins</option>
+                            <option value="3">3 Bins</option>
+                            <option value="4+">4+ Bins</option>
+                        </select>
+                        <div id="price-estimate" style="display:none; margin-top: 12px; padding: 12px 18px; background: #2d8a2d; color: white; border-radius: 8px; font-size: 1.1em; font-weight: bold; text-align: center;"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" name="preferred_date" required>
+                </div>
+                <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea name="notes" placeholder="Any special instructions or questions..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Book My Cleaning!</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact">
+        <h2>Text Us Today!</h2>
+        <div class="phone">(949) 689-9037</div>
+        <p>We will get back to you as soon as possible to confirm your appointment.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 San Clemente Bin Cleaning Service. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updatePrice() {
+            var bins = document.getElementById('num_bins').value;
+            var priceBox = document.getElementById('price-estimate');
+            var pricePerBin = 20;
+
+            if (bins === '') {
+                priceBox.style.display = 'none';
+                return;
+            }
+
+            if (bins === '4+') {
+                priceBox.innerHTML = 'Estimated Total: $80+ &mdash; We will confirm your exact price before your appointment.';
+            } else {
+                var total = parseInt(bins) * pricePerBin;
+                priceBox.innerHTML = 'Estimated Total: $' + total + ' (' + bins + ' bin' + (parseInt(bins) > 1 ? 's' : '') + ' &times; $' + pricePerBin + ' each)';
+            }
+
+            priceBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
